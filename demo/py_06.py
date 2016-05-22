@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import re
-import urllib.request
 
 # pattern = re.compile(r'abc')  # r'xxx'：保留原生字符串
 # pattern = re.compile(r'abc', re.IGNORECASE)
@@ -39,26 +38,3 @@ print(s2)
 # 根据匹配分割字符串，返回分割字符串组成的列表
 L = re.split(r' ', s)
 print(L)
-
-
-# 简单的网络爬虫
-# response = urllib.request.urlopen('http://tieba.baidu.com/p/3599891436')
-# html = response.read()
-# print(html)
-
-# 使用 Request
-url = 'http://tieba.baidu.com/p/3002502381'
-req = urllib.request.Request(url)
-resp = urllib.request.urlopen(req)
-html = resp.read()
-# print(html)
-
-pattern = re.compile(r'<img [\s\S]+?src="(http:[\s\S]+?)"')
-url_list = re.findall(pattern, str(html))
-print(len(url_list))
-i = 1
-for url in url_list:
-    # print(url_list)
-    img_path = 'D:/demo/imgs/' + '%d.jpg' % i
-    # urllib.request.urlretrieve(url, img_path)  # 远程下载
-    i += 1

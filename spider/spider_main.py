@@ -1,4 +1,4 @@
-from main.spider import url_manager, html_parser, html_outer, html_downloader
+from spider import url_manager, html_parser, html_outer, html_downloader
 
 
 class SpiderMain(object):
