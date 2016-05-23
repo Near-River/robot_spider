@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# 简单的网络爬虫2: 模拟浏览器登陆知乎
+# 简单的网络爬虫: 模拟浏览器登陆知乎
 
 import gzip
 import re, time, os
