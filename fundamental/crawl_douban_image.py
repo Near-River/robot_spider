@@ -34,6 +34,6 @@ if __name__ == '__main__':
             img_path = makeFileName(targetDir, url[0])
             urllib.request.urlretrieve(url[0], img_path)  # 远程下载
         except urllib.request.URLError as e:
-            print('Crawl failed at: %s' % url[0])
+            print('Crawl failed at: %s' % url)
             failed_count += 1
     print('Failed crawl count: %s' % failed_count)

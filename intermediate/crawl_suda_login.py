@@ -18,7 +18,7 @@ header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:46.0) Gecko/20100101 Firefox/46.0',
     'Accept-Encoding': 'gzip,deflate',
     'Host': 'xk.suda.edu.cn',
-    'Referer': 'http://xk.suda.edu.cn/default5.aspx'
+    'Referer': URL
 }
 
 
@@ -37,7 +37,6 @@ def getOpener(header):
 # 获取验证码
 def get_captcha(opener):
     global CheckCodeURL
-    t = str(int(time.time() * 1000))
     captcha_url = CheckCodeURL
     r = opener.open(captcha_url)
     with open('check_code.jpg', 'wb') as f:
@@ -128,7 +127,6 @@ def parse_data(data):
     title_data = titles[0]
     content = pattern.findall(data)
     score_data = content[1:]  # 存放表格列信息
-    # print(score_data[0])
     save_data(title_data, score_data)
 
 

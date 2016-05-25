@@ -39,7 +39,6 @@ class Fetcher:
             with self.lock:  # 保证该操作的原子性
                 self.running += 1
             ans = self.get_data(req)
-
             self.q_ans.put(ans)
             with self.lock:
                 self.running -= 1
@@ -60,7 +59,7 @@ class Fetcher:
 
 if __name__ == '__main__':
     t1 = time.time()
-    links = ['http://www.verycd.com/base/movie/page%d/' % i for i in range(1, 10)]
+    links = ['http://www.verycd.com/base/movie/page%d/' % i for i in range(1, 11)]
     f = Fetcher(10)
     for url in links:
         f.push(url)

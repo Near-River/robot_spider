@@ -87,7 +87,7 @@ def login():
     _xsrf = getXSRF(data.decode())
 
     # 组装post数据
-    account = input('Phone number: ')
+    account = input('Account: ')
     password = input('Password: ')
     captcha = get_captcha(opener)
     # 构造Post数据

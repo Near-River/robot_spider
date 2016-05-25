@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # 简单的网络爬虫: 抓取糗事百科段子
 
-import os, time
 import re
+import time
 import urllib.request
 from threading import Thread
 
