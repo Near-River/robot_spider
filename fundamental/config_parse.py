@@ -8,9 +8,7 @@ import configparser
 cfg = configparser.ConfigParser()
 # read()：Read and parse a filename or a list of filenames.
 #       Return list of successfully read files.
-# print(help(cfg.read))
 # sections()：Return a list of section names, excluding [DEFAULT]
-# print(help(cfg.sections))
 
 try:
     fds = cfg.read('D:/demo/cfg.ini')
@@ -22,14 +20,14 @@ try:
     print(option)
 
     password = cfg.get('userinfo', 'password')
-    # print(password)
+    print(password)
     # cfg.set('userinfo', 'password', '123456')
     # cfg.set('userinfo', 'email', 'xxx@gmail.com')
     # if cfg.has_option('userinfo', 'email'):
     #     cfg.remove_option('userinfo', 'email')
     # cfg.remove_section('userinfo')
     fd = open('D:/demo/cfg.ini', 'w')
-    cfg.write((fd))
+    cfg.write(fd)
 except IOError as error:
     print(error)
     fd.close()
@@ -55,7 +53,7 @@ class UserInfo(object):
     def delete_option(self, section, key):
         self.__cfg.remove_option(section, key)
 
-    def delete_session(self, section):
+    def delete_section(self, section):
         self.__cfg.remove_section(section)
 
     def save(self):
@@ -72,5 +70,5 @@ if __name__ == '__main__':
 
     # user_info.set_option('userinfo', 'email', 'xxx@gmail.com')
     # user_info.delete_option('userinfo', 'email')
-    # user_info.delete_session('userinfo')
+    # user_info.delete_section('userinfo')
     user_info.save()

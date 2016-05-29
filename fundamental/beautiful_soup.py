@@ -1,7 +1,6 @@
 #############################################################################
 from bs4 import BeautifulSoup
 from urllib import request
-from setuptools.compat import unicode
 
 # Beautiful Soup4的使用
 #   将复杂HTML文档转换成一个复杂的树形结构,每个节点都是Python对象
@@ -28,7 +27,6 @@ attrs = soup.a['class']
 # print(type(tag.string))
 # print(tag.string)
 # print(tag.get_text())
-# print(unicode(tag.string))
 # tag中包含的字符串不能编辑,但是可以被替换成其它的字符串
 tag.string.replace_with('Click!')
 # print(tag.string)
@@ -53,5 +51,4 @@ html_doc = resp.read().decode('utf-8')
 b_soup = BeautifulSoup(html_doc, 'html.parser')
 links = b_soup.find_all('a')
 for link in links:
-    # print(link)
-    pass
+    print(link)
