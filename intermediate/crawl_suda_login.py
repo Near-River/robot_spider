@@ -51,7 +51,6 @@ def get_captcha(opener):
 def suda_xk_login():
     global URL, header
     opener = getOpener(header)
-    opener.open(URL)
 
     # 组装post数据
     account = input('Sid: ')
@@ -85,7 +84,7 @@ def suda_xk_load_score():
         'Accept-Encoding': 'gzip,deflate',
         'Host': 'xk.suda.edu.cn',
         'Referer': 'http://xk.suda.edu.cn/xscjcx_dq.aspx?xh=1327403010&xm=%D1%EE%CF%F4&gnmkdm=N121604',
-        'Cookie': 'yunsuo_session_verify=d083715be7b906ad320f92e204eefcd1; ASP.NET_SessionId=tdj5zf55t2pire55qdndru55; AD_jsdx_cookie=20111155'
+        'Cookie': 'yunsuo_session_verify=0533a1e477b955cabb034ba7a2443b07; ASP.NET_SessionId=ovxthx45mumwhg55aqpxhn55; AD_jsdx_cookie=20111151'
     }
     opener = getOpener(headers)
     postDict = {
@@ -118,10 +117,10 @@ def parse_data(data):
     	</tr><tr>
     """
     title_pattern = re.compile(
-        r'<tr class="datelisthead">.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>',
+        r'<tr class="datelisthead">.*?<td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td>',
         flags=re.DOTALL)
     pattern = re.compile(
-        r'<tr.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>.*?<td>(.*?)</td>',
+        r'<tr.*?>.*?<td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td><td>(.*?)</td>',
         flags=re.DOTALL)
     titles = title_pattern.findall(data)  # 存放表格头信息
     title_data = titles[0]
